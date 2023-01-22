@@ -1,0 +1,235 @@
+
+<html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="main.css">
+	<style>
+		.forumm #span{
+			display:inline-block;
+			width:30%;
+		}
+		.forumm input{
+			display:inline-block;
+			width:65%;
+		}
+		body{
+			background-image:url("comp.jpg");
+			    background-repeat: no-repeat;
+				background-width:100%;
+				background-height:100%;
+				background-size: cover;				
+		}
+		.container{
+		background:white;
+		margin-top:10px;
+		border:1px solid black;
+		border-radius:10px;
+	}
+	.container p{
+		
+	}
+	.container h3{
+		border-bottom:2px solid #c0c0c0;
+		text-align:center;
+		padding-bottom:7px;
+	}
+	</style>
+</head>
+<body>	
+	<nav class="navbar-nav navbar-expand-sm bg-dark">
+		<div class="nav-item item1" style="margin-left:5%">
+				<h2 onclick='window.open("index.html");' style="cursor:pointer">Complaint System</h2>
+		</div>
+		<div class="nav-item items" >
+				<a class="nav-link" href="userlogin1.html">User Login</a>
+		</div>
+			<div class="nav-item items">
+				<a class="nav-link" href="userreg1.html">User Registration</a>
+		</div>
+			<div class="nav-item items">
+				<a class="nav-link" href="adminlogin1.html">ADMIN</a>
+		</div>
+		</nav>
+	<div class="container">
+	<h3>User Registration</h3>
+	<form onsubmit="myfun()" class="forumm" method="post" id="reg" action="userreg2.php">
+			<div id="span">First Name</div><input class="form-control" type="text" id="fname" name="fname"><p id="chkfname" >*Fill First Name</p><br />
+			<div id="span">Last Name</div><input class="form-control" type="text" id="lname" name="lname"><p id="chklname" >*Fill Last Name</p><br />
+			<div id="span">Username</div><input class="form-control" type="text" id="uname" name="username"><p id="chkuser" style="color:red;display:none;" >*Fill user Name</p><br />
+			<div id="span">Email</div><input name="email" class="form-control" type="email" id="mail"><p id="chkmail" >*Fill Email</p><br />
+			<div id="span">Phone Number</div><input class="form-control" type="text" id="pn" name="phone"><p id="chkpn" >*Fill phone nubmer</p><br />
+			<div id="span">Gender</div>
+							<select style="width:40%;display:inline-block"  class="form-control"  name="gender">
+									<option>Male</option>
+									<option>Female</option>
+							</select>
+			<br />
+			<div id="span">Password</div><input class="form-control" type="password" id="pass"><br />
+			<div id="span">Confirm Password</div><input name="pass" class="form-control" type="text" id="cpass"><p id="match" >Password matched.</p><br />
+		<hr /><button class="btn btn-danger" onclick="myfun()" name="btn" type="button" style="margin-left:33%;width:30%;">
+		SIGN UP  <i style="font-size:16px" class="fa">&#xf054;</i></button>
+	</form>
+			
+				<hr /><button class="btn btn-light" onclick="window.location.reload()">Clear All</button>
+				<a class="btn btn-light" href="userlogin1.html">Already SignUP!!Login here</a>
+				<br /><hr />
+	</div>
+	<script>
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	function myfun()
+	{
+		/////////////
+
+//////////////////////////
+		var ch1=false,ch2=false,ch3=false,ch4=false,ch5=false,ch6=false;
+		var uname=document.getElementById("uname").value;
+		var chkuname=document.getElementById("chkuser");
+		if(uname=="")
+		{
+			chkuname.style.display='inline-block';
+		}
+		else
+		{
+			ch6=true;
+			chkuname.style.display='none';
+		}
+	
+		var fname=document.getElementById("fname").value;
+		var chkfname=document.getElementById("chkfname");
+		var str=new RegExp(/[0-9]/);
+		var forfname=str.test(fname);
+		if(forfname==true)
+		{
+			chkfname.innerHTML="*Only alphabets allowed.";
+			chkfname.style.display='inline-block';
+		}
+		else if(fname=="")
+		{
+			chkfname.innerHTML="*Fill First Name";
+			chkfname.style.display='inline-block';
+		}
+		else
+		{
+			ch1=true;
+			chkfname.style.display='none';
+		}
+	
+	//////////////////////////////////////////////////////////////////////////////////////////////////////
+		var lname=document.getElementById("lname").value;
+		var chklname=document.getElementById("chklname");
+		var str2=new RegExp(/[0-9]/);
+		var forlname=str2.test(lname);
+		if(forlname==true)
+		{
+			chklname.innerHTML="*Only alphabets allowed.";
+			chklname.style.display='inline-block';
+		}
+		else if(lname=="")
+		{
+			chklname.style.display='inline-block';
+		}	
+		else 
+		{
+			ch2=true;
+			chklname.style.display='none';
+		}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		var mail=document.getElementById("mail").value;
+		var chkmail=document.getElementById("chkmail");
+		var formail =new RegExp(/^[a-zA-Z0-9]+@+[a-zA-Z]+\.+[a-z]+$/);
+		var cme=formail.test(mail);
+		if(cme!=true)
+		{
+			chkmail.innerHTML="*Enter Correct syntax of email(abc@xyz.xz)";
+			chkmail.style.display='inline-block';
+		}
+		else if(mail=="")
+		{
+			chkmail.innerHTML="*Fill Email ";
+			chkmail.style.display='inline-block';
+		}	
+		else 
+		{
+			ch3=true;
+			chkmail.style.display='none';
+		}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		var pn=document.getElementById("pn").value;
+		var chkpn=document.getElementById("chkpn");
+		var forpn= new RegExp (/(^[0-9]{3})+([0-9]{8})+$/);
+		var seeme=forpn.test(pn);
+		if(seeme!=true)
+		{
+			chkpn.innerHTML="Enter Phone Number (0xxxyyyyyyy)";
+			chkpn.style.display='inline-block';
+		}else if(pn=="")
+		{
+			chkpn.innerHTML="*Fill Phone Number";
+			chkpn.style.display='inline-block';
+		}
+		else 
+		{
+			ch4=true;
+			chkpn.style.display='none';
+		}
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		var pass=document.getElementById("pass").value;
+		var cpass=document.getElementById("cpass").value;
+		var spass=document.getElementById("match");
+		if(pass=="")
+		{
+			
+			spass.innerHTML="*Fill password";
+			spass.style.display='inline-block';
+		}
+		else
+		{
+		if(pass==cpass)
+		{
+			ch5=true;
+			spass.style.display='inline-block';
+			spass.innerHTML="*password matched";
+		}
+		else
+		{
+			spass.style.display='inline-block';
+			spass.innerHTML="*password NOT matched";
+		}
+		}
+		if(ch1==true&&ch2==true&&ch3==true&&ch4==true&&ch5==true&&ch6==true){
+		document.getElementById("reg").submit();
+		
+		}
+		////////////////////////////////////////////////////////////////////////////////////////////////////////
+		// var tab=document.getElementById("tab");
+		// tab.style.display='block';
+		// var efname=document.getElementById("efname");
+		// var elname=document.getElementById("elname");
+		// var ern=document.getElementById("ern");
+		// var epn=document.getElementById("epn");
+		// var email=document.getElementById("email");
+		// var epass=document.getElementById("epass");
+		// efname.innerHTML=fname;
+		// elname.innerHTML=lname;
+		// ern.innerHTML=rn;
+		// epn.innerHTML=pn;
+		// email.innerHTML=mail;
+		// epass.innerHTML=pass;
+		// efname.style.display='inline-block';
+		// elname.style.display='inline-block';
+		// ern.style.display='inline-block';
+		// epn.style.display='inline-block';
+		// email.style.display='inline-block';
+		// epass.style.display='inline-block';
+		
+		
+		
+	}
+</script>
+</body>
+</html>

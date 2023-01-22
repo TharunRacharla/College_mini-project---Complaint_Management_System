@@ -1,0 +1,82 @@
+
+.nav-item{
+	padding:6px;
+}
+.itme1{
+	padding-left:8%;
+}
+.item1 h2{
+	color:white;
+	font-family:Arial Black;
+}
+.items{
+	padding-left:3%;
+}
+.items a{
+	color:#ffffff;
+}
+.items a:hover{
+	opacity:0.6;
+}
+.carousel-inner img{
+	width:100%;
+	height:450px;
+}
+.welcome h3{
+	padding-top:4%;
+	text-align:center;
+}
+.list-group-item
+{
+	padding-left:30px;
+}
+#butn{
+	display:inline-block;
+	text-align:center;
+	margin-left:2px;
+}
+.btn-light{
+	background-color:#c0c0c0;
+}
+.copyright{
+	background:light;
+}
+#chkfname,#chklname,#chkmail,#chkpn,#chkuser,#efname,#elname,#email,#epn,#epass
+	{
+		color:red;
+		display:none;
+		
+	}	
+	#match{
+		display:none;
+		color:green;
+	}
+	::placeholder {
+	padding:5px;
+	font-size:17px;
+  color: red;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+ 
+	font-size:17px;
+	padding:5px;
+ color: red;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+	padding:5px;
+	font-size:17px;
+ color: red;
+}
+
+	
+	
+@media screen and (max-width: 480px) {
+	
+}
+
+@media screen and (max-width: 700px) {
+	
+}
